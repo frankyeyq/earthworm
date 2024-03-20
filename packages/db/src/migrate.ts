@@ -1,5 +1,5 @@
-import { migrate } from "drizzle-orm/mysql2/migrator";
 import { drizzle } from "drizzle-orm/mysql2";
+import { migrate } from "drizzle-orm/mysql2/migrator";
 import * as mysql from "mysql2/promise";
 
 async function main() {

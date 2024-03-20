@@ -1,9 +1,11 @@
-import { statement } from "@shared/schema";
+import { db } from "@earthworm/db";
+import { statement } from "@earthworm/schema";
 import fs from "node:fs";
 import path from "node:path";
-import { db } from "./db";
 
-const courses = fs.readdirSync(path.resolve(__dirname, "./courses"));
+
+const courses = fs.readdirSync(path.resolve(__dirname, "../data/courses"));
+
 
 (async function () {
 
@@ -30,7 +32,7 @@ const courses = fs.readdirSync(path.resolve(__dirname, "./courses"));
     const course = courses[i];
     const cId = parseInt(path.parse(course).name);
     const courseDataText = fs.readFileSync(
-      path.resolve(__dirname, `./courses/${course}`),
+      path.resolve(__dirname, `../data/courses/${course}`),
       "utf-8"
     );
 

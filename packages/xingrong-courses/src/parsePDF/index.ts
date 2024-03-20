@@ -4,9 +4,8 @@ import pdf from "pdf-parse";
 import { inquire } from "./inquire";
 import { parse } from "./parser";
 
-
-const targetPath = path.resolve(__dirname, "../pdf");
-const outputPath = path.resolve(__dirname, "../new-courses");
+const targetPath = path.resolve(__dirname, "../../data/pdf");
+const outputPath = path.resolve(__dirname, "../../data/courses");
 
 (async function () {
   const fileNameMap = createFileNameMap();
@@ -33,7 +32,8 @@ function createFileNameMap(): Record<string, string> {
 
   files.forEach((file, index) => {
     const key = path.resolve(targetPath, file);
-    fileNameMap[key] = String(index + 1);
+    const nameIndex = index + 1;
+    fileNameMap[key] = nameIndex < 10 ? `0${nameIndex}` : `${nameIndex}`;
   });
 
   return fileNameMap;

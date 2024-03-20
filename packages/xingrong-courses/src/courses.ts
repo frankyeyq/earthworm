@@ -1,8 +1,8 @@
-import { course as courseSchema } from "@shared/schema";
+import { db } from "@earthworm/db";
+import { course as courseSchema } from "@earthworm/schema";
 import fs from "fs";
 import path from "path";
-import { db } from "./db";
-const courses = fs.readdirSync(path.resolve(__dirname, "./courses"));
+const courses = fs.readdirSync(path.resolve(__dirname, "../data/courses"));
 
 (async function () {
   await db.delete(courseSchema);
